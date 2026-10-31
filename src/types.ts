@@ -1,3 +1,5 @@
-export type { Coordinate, CoordinateInput, DMSCoordinate } from "@arijitgupta/geo-core";
-export type DistanceUnit = "meters" | "kilometers" | "miles" | "feet" | "nauticalMiles";
-export type Polyline = readonly import("@arijitgupta/geo-core").CoordinateInput[];
+import type { Coordinate, DMSCoordinate } from "@arijitgupta/geo-distance";
+export type { Coordinate, DMSCoordinate } from "@arijitgupta/geo-distance";
+export type CoordinateInput = Coordinate | DMSCoordinate;
+export type DistanceUnit = "meters" | "kilometers" | "miles" | "feet";
+export type Polyline = readonly CoordinateInput[];

@@ -1,3 +1,2 @@
-export type { Coordinate, CoordinateInput, DMSCoordinate } from "@arijitgupta/geo-core";
-export type { DistanceUnit, Polyline } from "./types.js";
-export { deduplicatePolyline, getPolylineLength, getSegment, getSegmentCount, getVertexCount, mapPolyline, mergePolylines, normalizePolyline, reversePolyline } from "./polyline.js";
+export type { Coordinate, DMSCoordinate, CoordinateInput, DistanceUnit, Polyline } from "./types.js";
+export { normalizePolyline, getVertexCount, getSegmentCount, getPolylineLength, getSegment, reversePolyline, deduplicatePolyline, mergePolylines, mapPolyline } from "./polyline.js";
