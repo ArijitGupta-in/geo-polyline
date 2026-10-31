@@ -1,7 +1,7 @@
 {
     "name": "@arijitgupta/geo-polyline",
-    "version": "0.2.0",
-    "description": "Validated geographic polyline operations and great-circle path measurements.",
+    "version": "1.0.0",
+    "description": "Validate and manipulate geographic polylines with length, segment, deduplication, merge, and mapping operations.",
     "type": "module",
     "repository": {
         "type": "git",
@@ -27,12 +27,13 @@
     },
     "sideEffects": false,
     "scripts": {
-        "build": "tsc",
+        "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+        "build": "npm run clean && tsc",
         "test": "vitest run",
         "test:coverage": "vitest run --coverage",
         "check": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
         "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
-        "prepublishOnly": "npm run check && npm test && npm run build"
+        "prepublishOnly": "npm run check && npm run test:coverage && npm run build"
     },
     "keywords": [
         "geo",
@@ -40,6 +41,16 @@
         "polyline",
         "path",
         "coordinates",
+        "DMS",
+        "latitude",
+        "longitude",
+        "geography",
+        "great-circle",
+        "distance",
+        "kilometers",
+        "miles",
+        "feet",
+        "nautical-miles",
         "track",
         "route"
     ],
