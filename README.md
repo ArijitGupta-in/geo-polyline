@@ -1,6 +1,6 @@
 # @arijitgupta/geo-polyline
 
-Validated operations for ordered geographic coordinate sequences. Accepts decimal-degree and DMS coordinates, validates geographic ranges, and normalizes inputs to decimal degrees. The package has no runtime dependencies.
+Validated operations for ordered geographic coordinate sequences. Accepts decimal-degree and DMS coordinates, validates geographic ranges, and normalizes inputs to decimal degrees using `@arijitgupta/geo-core`. Great-circle distances use `@arijitgupta/geo-distance`.
 
 ## Install
 
@@ -26,12 +26,12 @@ const reversed = reversePolyline(clean);
 - `getSegment(path, index)`: get the segment starting at a zero-based vertex index.
 - `reversePolyline(path)`: return a reversed copy.
 - `deduplicatePolyline(path, toleranceMeters?)`: remove consecutive vertices within a threshold; defaults to exact duplicates.
-- `mergePolylines(left, right, toleranceMeters?)`: join paths only when endpoints meet within tolerance; the join vertex is included once.
+- `mergePolylines(left, right, toleranceMeters?)`: join paths only when endpoints meet within tolerance. The left path's endpoint is kept and the right path's first vertex is dropped, even when they are merely within tolerance; endpoints are not averaged or snapped.
 - `mapPolyline(path, transform)`: transform each vertex and validate the result.
 
-Paths may be empty or contain one vertex. Inputs are not mutated. Non-consecutive revisits are preserved. Invalid coordinates throw `TypeError` or `RangeError`; invalid indices and negative tolerances throw `RangeError`.
+Paths may be empty or contain one vertex. Sparse arrays (arrays with missing vertex indices) are invalid. Inputs are not mutated. Non-consecutive revisits are preserved. Coordinate normalization follows `geo-core`, including canonicalizing longitude `-180` to `180`. Invalid coordinates throw `TypeError` or `RangeError`; invalid indices and negative tolerances throw `RangeError`.
 
-Distances use a spherical Earth with mean radius 6,371,000 m (Haversine). This is an estimate, not an ellipsoidal geodesic.
+Distances use `@arijitgupta/geo-distance`'s spherical Haversine calculation with mean Earth radius 6,371,000 m. This is an estimate, not an ellipsoidal geodesic.
 
 ## Development
 

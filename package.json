@@ -50,5 +50,9 @@
         "markdownlint-cli2": "^0.23.2",
         "typescript": "^7.0.2",
         "vitest": "^4.1.11"
+    },
+    "dependencies": {
+        "@arijitgupta/geo-core": "^1.1.0",
+        "@arijitgupta/geo-distance": "^2.1.0"
     }
 }
