@@ -1,7 +1,3 @@
-/**
- * Public entry point.
- *
- * The public API will be added after the package's scope and contracts are
- * established. Shared geographic primitives come from @arijitgupta/geo-core.
- */
-export {};
+export type { Coordinate, CoordinateInput, DMSCoordinate } from "@arijitgupta/geo-core";
+export type { DistanceUnit, Polyline } from "./types.js";
+export { deduplicatePolyline, getPolylineLength, getSegment, getSegmentCount, getVertexCount, mapPolyline, mergePolylines, normalizePolyline, reversePolyline } from "./polyline.js";

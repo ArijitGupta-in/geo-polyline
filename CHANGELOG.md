@@ -1,10 +1,11 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+All notable changes are documented here. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Internal
-- Initialize TypeScript package structure, test tooling, and project documentation.
+## [0.2.0] - 2026-10-31
+
+### Added
+- Polyline normalization, great-circle length, segment access, reversal, deduplication, merging, and mapping.
+- Unit tests for public operations and validation.
