@@ -1,6 +1,6 @@
 # @arijitgupta/geo-polyline
 
-Validated operations for ordered geographic coordinate sequences. Accepts decimal-degree and DMS coordinates through [`@arijitgupta/geo-core`](https://www.npmjs.com/package/@arijitgupta/geo-core).
+Validated operations for ordered geographic coordinate sequences. Accepts decimal-degree and DMS coordinates, validates geographic ranges, and normalizes inputs to decimal degrees. The package has no runtime dependencies.
 
 ## Install
 
@@ -22,14 +22,16 @@ const reversed = reversePolyline(clean);
 
 - `normalizePolyline(path)`: validate and convert vertices to decimal degrees.
 - `getVertexCount(path)`, `getSegmentCount(path)`: count vertices and consecutive segments.
-- `getPolylineLength(path, unit?)`: sum great-circle distances; defaults to meters. Units: meters, kilometers, miles, feet, nauticalMiles.
+- `getPolylineLength(path, unit?)`: sum great-circle distances; defaults to meters. Units: meters, kilometers, miles, feet.
 - `getSegment(path, index)`: get the segment starting at a zero-based vertex index.
 - `reversePolyline(path)`: return a reversed copy.
 - `deduplicatePolyline(path, toleranceMeters?)`: remove consecutive vertices within a threshold; defaults to exact duplicates.
 - `mergePolylines(left, right, toleranceMeters?)`: join paths only when endpoints meet within tolerance; the join vertex is included once.
 - `mapPolyline(path, transform)`: transform each vertex and validate the result.
 
-Paths may be empty or contain one vertex. Inputs are not mutated. Non-consecutive revisits are preserved. Invalid coordinates propagate `geo-core` errors; invalid indices and negative tolerances throw `RangeError`.
+Paths may be empty or contain one vertex. Inputs are not mutated. Non-consecutive revisits are preserved. Invalid coordinates throw `TypeError` or `RangeError`; invalid indices and negative tolerances throw `RangeError`.
+
+Distances use a spherical Earth with mean radius 6,371,000 m (Haversine). This is an estimate, not an ellipsoidal geodesic.
 
 ## Development
 
