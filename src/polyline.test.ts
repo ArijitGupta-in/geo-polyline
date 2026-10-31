@@ -25,8 +25,10 @@ describe("polyline", () => {
     });
     it("measures the sum of great-circle segment distances", () => {
         expect(getPolylineLength([a, b], "kilometers")).toBeCloseTo(111.195, 1);
+        expect(getPolylineLength([a, b], "nauticalMiles")).toBeCloseTo(60.04, 1);
         expect(getPolylineLength([])).toBe(0);
         expect(() => getPolylineLength([a], "toString" as never)).toThrow(TypeError);
+        expect(() => getPolylineLength([a], "yards" as never)).toThrow(TypeError);
     });
     it("returns a segment and validates its index", () => {
         expect(getSegment([a, b, c], 1)).toEqual([b, c]);

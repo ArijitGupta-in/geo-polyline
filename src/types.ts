@@ -10,5 +10,5 @@ export type {
     LongitudeDirection,
 } from "@arijitgupta/geo-core";
 
-export type DistanceUnit = "meters" | "kilometers" | "miles" | "feet";
+export type { DistanceUnit } from "@arijitgupta/geo-distance";
 export type Polyline = readonly CoordinateInput[];

@@ -6,6 +6,8 @@ export type {
     CoordinateInput,
     DistanceUnit,
     Polyline,
+    LatitudeDirection,
+    LongitudeDirection,
 } from "./types.js";
 export {
     normalizePolyline,
