@@ -18,7 +18,7 @@ npm install
 | Command | Purpose |
 | --- | --- |
 | `npm test` | Run tests with Vitest |
-| `npm run test:coverage` | Run tests and generate a coverage report |
+| `npm run test:coverage` | Run tests, enforce 80% coverage thresholds, and generate a report |
 | `npm run check` | Type-check source and tests |
 | `npm run lint:md` | Lint Markdown files |
 | `npm run clean` | Remove generated `dist/` output |

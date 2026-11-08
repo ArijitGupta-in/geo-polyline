@@ -66,7 +66,7 @@ All functions are exported from the package root. Inputs are not mutated.
 - Coordinate values are validated by `geo-core`. Longitude `-180` is normalized to `180`; out-of-range values are rejected, not wrapped.
 - Duplicates removed by `deduplicatePolyline` are consecutive only. The first point is retained, and later points are compared with the last retained point. Non-consecutive revisits remain.
 - `mergePolylines` keeps the left path's endpoint and drops the right path's first vertex, even if their coordinates differ but are within tolerance. The endpoints are not averaged or snapped. If either path is empty, the other path is returned as a normalized copy.
-- Non-finite or negative tolerances are rejected. Non-integer segment indices throw `TypeError`; out-of-range indices throw `RangeError`. Invalid coordinates and unsupported distance units are also rejected with `TypeError` or `RangeError`.
+- Non-finite tolerances throw `TypeError`; negative tolerances throw `RangeError`. Non-integer segment indices throw `TypeError`; out-of-range indices throw `RangeError`. Invalid coordinate types and non-finite values throw `TypeError`, out-of-range coordinates throw `RangeError`, and unsupported distance units throw `TypeError`, matching `geo-core` and `geo-distance`.
 
 ## Distance model
 
@@ -84,7 +84,7 @@ npm run build
 npm run lint:md
 ```
 
-Run `npm run test:coverage` to generate a coverage report.
+Run `npm run test:coverage` to enforce 80% line, function, branch, and statement coverage thresholds and generate a report.
 
 ## License
 

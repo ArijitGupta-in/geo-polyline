@@ -13,6 +13,7 @@ jobs:
   publish:
     name: Publish package
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/tags/v1.0.0'
 
     steps:
       - name: Check out repository
